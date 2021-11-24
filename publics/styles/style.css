@@ -1,0 +1,138 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Basic Style */
+*, *::before, *::after{
+	box-sizing: border-box;
+	margin: 0;
+}
+
+body, html{
+	font-family: Inter, sans-serif;
+	width: 100%;
+	height: 100%;
+}
+
+:root{
+	--light: #E9ECF5;
+	--primary: #3F8EFC;
+	--marine: #2667FF;
+	--marineHover: #145BFF;
+	--dark-0: #24272B;
+	--dark-1: #222222;
+	--red: #FF4343;
+	--outline: #C4DCDF;
+	--purple: #3B28CC;
+	--loading: spin 4s linear infinite 0s;
+}
+
+a{
+	color: var(--marine);
+	text-decoration: none;
+}
+
+a:hover{ text-decoration: underline }
+
+.logo{
+	width: var(--size);
+	height: var(--size);
+	background-size: 100% 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	display: block;
+}
+
+.logo.square{ background-image: url(/assets/logo/dark-vector.svg) }
+.logo.round{ background-image: url(/assets/logo/round-dark-vector.svg) }
+.logo.blue.square{ background-image: url(/assets/logo/blue-vector.svg) }
+.logo.blue.round{ background-image: url(/assets/logo/round-blue-vector.svg) }
+
+input::placeholder{
+	color: #c4dcdf;
+	font-family: Inter, sans-serif;
+}
+
+input{
+	width: 100%;
+	padding: 14px;
+	border: 1px solid #c4dcdf;
+	font-size: 14px;
+	outline: none;
+	background-color: transparent;
+	border-radius: 6px;
+	margin: 5px 0;
+	transition: .1s all;
+}
+
+input:focus{
+	border: 2px solid var(--marine);
+	padding: 13px;
+}
+
+button{
+	width: 100%;
+	border-radius: 5px;
+	padding: 15px;
+	outline: none;
+	cursor: pointer;
+	border: none;
+	--color: var(--marine);
+	background-color: var(--color);
+	color: #fff;
+	font-weight: bold;
+	font-size: 18px;
+	margin-top: 5px;
+}
+
+button.round{ border-radius: 10em }
+button.dark{ --color: var(--dark-1) }
+button.secondary{
+	background-color: transparent;
+	border: 2px solid var(--color);
+	color: var(--color);
+	transition: .2s all;
+}
+
+button.secondary:hover{
+	color: #fff;
+	background-color: var(--color);
+}
+
+button:active{ transform: scale(.97) }
+
+button[type="submit"]{ text-transform: uppercase }
+
+button.space{ padding: 15px 50px }
+
+/* Form */
+form{
+	width: 400px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	border: 1px solid var(--light);
+	border-radius: 15px;
+	padding: 40px 35px;
+	max-width: 100vw;
+}
+
+form .form--title{
+	margin-bottom: 20px;
+	font-weight: 500;
+}
+
+/* Media */
+@media (max-width: 420px){
+	form{
+		border-left: 0;
+		border-right: 0;
+		border-radius: 0;
+	}
+}
+
+.hidden, [hidden]{ display: none !important }
+
+@keyframes spin{
+	from{ transform: rotate(0deg) }
+	to{ transform: rotate(359deg) }
+}

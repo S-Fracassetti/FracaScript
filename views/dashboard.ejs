@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/styles/style.css">
+	<link rel="stylesheet" href="/styles/dashboard.css">
+	<title>FracaScript • Dashboard</title>
+</head>
+<body>
+
+	<header>
+		<div class="heading">
+			<div class="mobile-icon">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<h1>FracaScript Dashboard</h1>
+		</div>
+		<user-info>Simone Fracassetti</user-info>
+	</header>
+	<div class="dash-layout-block">
+		<aside>
+			<button class="space">Crea nuova app</button>
+			<div class="block-list">
+
+				<div class="block" api-section-name="my-apps">
+					<img src="/assets/icons/code.svg" alt="Icona">
+					<span>Le tue app</span>
+				</div>
+
+				<div class="block" api-section-name="support">
+					<img src="/assets/icons/at.svg" alt="Icona">
+					<span>Contatta il supporto</span>
+				</div>
+
+				<div class="line"></div>
+
+				<div class="block" api-section-name="account">
+					<img src="/assets/icons/personal.svg" alt="Icona">
+					<span>Informazioni personali</span>
+				</div>
+
+				<div class="block" api-section-name="password-change">
+					<img src="/assets/icons/key.svg" alt="Icona">
+					<span>Cambia password</span>
+				</div>
+
+			</div>
+		</aside>
+		<main empty>
+			<div class="empty">
+				<span>Non hai ancora creato nessuna app</span>
+				<button class="round secondary">Inizia ora</button>
+			</div>
+		</main>
+	</div>
+
+	<script src="/scripts/views.js" type="module"></script>
+	<script src="/scripts/aside.js" type="module" defer></script>
+</body>
+</html>

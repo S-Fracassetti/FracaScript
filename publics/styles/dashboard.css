@@ -1,0 +1,205 @@
+*{
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+}
+
+body{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+header .heading{
+	display: flex;
+	align-items: center;
+}
+
+.mobile-icon{
+	width: 35px;
+	margin: 7px;
+	margin-right: 25px;
+	cursor: pointer;
+}
+
+.mobile-icon span{
+	width: 100%;
+	height: 4px;
+	background-color: #fff;
+	border-radius: 1em;
+	display: block;
+}
+
+.mobile-icon span:not(:first-child){ margin-top: 8px }
+
+header{
+	width: 100%;
+	padding: 15px 20px;
+	background-color: var(--dark-1);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.dash-layout-block{
+	width: 100%;
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+aside, main{ height: 100% }
+
+main{
+	flex: 1;
+	overflow: auto;
+	position: relative;
+}
+
+aside{
+	padding: 25px 15px;
+	background-color: var(--dark-0);
+	display: inline-block;
+}
+
+body.full aside{ animation: closing .3s ease 1 0s forwards }
+body.full:not(.not-full) .dash-layout-block{ display: block }
+
+body.full:not(.not-full) main{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100%;
+}
+
+body.not-full aside{ animation: opening .3s ease 1 0s forwards }
+
+@keyframes closing{
+	from{ transform: translateX(0%) }
+	to{ transform: translateX(-100%) }
+}
+
+@keyframes opening{
+	from{ transform: translateX(-100%) }
+	to{ transform: translateX(0%) }
+}
+
+header h1{
+	color: #fff;
+	font-size: 1.5em;
+}
+
+aside .block-list{ margin-top: 20px }
+aside .block{
+	margin-top: 0px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-left: 10px;
+	color: #fff;
+	padding: 10px;
+	cursor: pointer;
+	transition: .1s all;
+	border-radius: 10px;
+	margin-right: 10px;
+}
+
+aside .block.selected{
+	font-weight: bold;
+	color: var(--primary);
+}
+
+aside .line{
+	width: 90%;
+	height: 1px;
+	background-color: #fff;
+	display: block;
+	margin: 20px auto;
+}
+
+aside .block:hover{ background-color: var(--dark-1) }
+
+aside .block span{
+	font-size: 1.2em;
+	margin-left: 10px;
+}
+
+user-info{
+	display: block;
+	padding: 8px 15px;
+	background-color: var(--marine);
+	border-radius: 5px;
+	color: #fff;
+	font-weight: normal;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: 400;
+	cursor: pointer;
+	transition: .2s all;
+}
+
+user-info:hover{ background-color: var(--marineHover) }
+
+user-info::after{
+	content: '';
+	display: block;
+	border-left: 1px solid #fff;
+	width: 1em;
+	height: 1em;
+	margin-left: 10px;
+	padding: 12px;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-image: url(/assets/icons/block-arrow-down.svg);
+	padding-left: 10px;
+}
+
+main:not([empty]) .empty{ display: none }
+main[empty] > *:not(.empty){ display: none }
+main[empty]{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+main[empty] .empty{ width: 100% }
+
+main[empty] span{
+	display: block;
+	font-size: 1.4em;
+	max-width: 95%;
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+main[empty] .empty button{
+	width: 400px;
+	max-width: 95%;
+	margin: 0 auto;
+	display: block;
+}
+
+main[loading] *{ display: none }
+main[loading]{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+main[loading]::after{
+	display: block;
+	content: '';
+	width: 64px;
+	height: 64px;
+	background-image: url(/assets/icons/loading-blue-filled.svg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position: center center;
+	animation: var(--loading);
+}

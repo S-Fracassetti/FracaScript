@@ -1,0 +1,51 @@
+/* Layout */
+body{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: 60px 30px;
+}
+
+/* Header  */
+header .logo{ --size: 100px }
+
+header{
+	display: flex;
+	align-items: center;
+	max-width: 95vw;
+}
+
+header .header--hero{
+	max-width: 300px;
+	margin-left: 25px;
+	font-weight: 300;
+}
+
+header h1{ color: var(--primary) }
+
+header p{
+	margin-top: 10px;
+	font-weight: 300;
+}
+
+form{ margin: 25px 0 }
+
+/* Footer */
+footer{
+	width: 650px;
+	max-width: 90vw;
+	text-align: center;
+	color: #444;
+}
+
+/* Media */
+@media (max-width: 550px){
+	footer{ font-size: .9em }
+}
+
+@media (max-width: 500px){
+	header .logo{ display: none }
+	header{ text-align: center }
+	header .header--hero{ margin-left: 0 }
+}
