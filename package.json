@@ -1,0 +1,26 @@
+{
+  "name": "fracascript",
+  "version": "1.0.0-beta",
+  "description": "FracaScript Interface",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/S-Fracassetti/FracaScript.git"
+  },
+  "keywords": [
+    "language",
+    "coding",
+    "app",
+    "mobile",
+    "beginners"
+  ],
+  "author": "Fracassetti Simone",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/S-Fracassetti/FracaScript/issues"
+  },
+  "homepage": "https://github.com/S-Fracassetti/FracaScript#readme"
+}
