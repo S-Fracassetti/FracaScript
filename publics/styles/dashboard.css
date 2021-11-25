@@ -57,12 +57,15 @@ main{
 	flex: 1;
 	overflow: auto;
 	position: relative;
+	padding: 30px;
 }
 
 aside{
+	position: relative;
 	padding: 25px 15px;
 	background-color: var(--dark-0);
 	display: inline-block;
+	z-index: 10;
 }
 
 body.full aside{ animation: closing .3s ease 1 0s forwards }
@@ -202,4 +205,9 @@ main[loading]::after{
 	background-size: 100% 100%;
 	background-position: center center;
 	animation: var(--loading);
+}
+
+main .section{
+	width: 100%;
+	min-height: 100%;
 }

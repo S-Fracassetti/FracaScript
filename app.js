@@ -48,8 +48,21 @@ app.use(expressSession({
   cookie: { secure: false }
 }));
 
+/* Blocks */
+const blocks = fs.readdirSync('./views/blocks/')
+                 .filter(file => !file.startsWith('.'))
+                 .map(file => file.split('.').reverse().slice(1).reverse().join('.'));
+
 /* Routes */
 app.get('/', (req, res) => res.render('dashboard'));
+app.post('/api/section/:blockName', (req, res) => {
+  const blockName = req.params.blockName.toLowerCase();
+  if(!blocks.includes(blockName))
+    return res.status(404).json({ success: false, status: 404, description: "Sezione non trovata" });
+  
+  const content = fs.readFileSync(`./views/blocks/${blockName}.frcapi`).toString();
+  return res.json({ success: true, content, status: 200 });
+});
 
 /* Ports reservation */
 server.listen(settings.WebServerPort || 80, () => console.log('WebServer in ascolto sulla porta'.brightBlue.bold, (settings.WebServerPort || 80).toString().white));
