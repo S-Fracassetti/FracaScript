@@ -14,30 +14,34 @@ blocks.forEach(block => block.addEventListener('click', async () => {
 	main.setAttribute('loading', true);
 
 	let timeoutExpired = false;
-	const error = () => {
+	const error = status => {
 		timeoutExpired = true;
 		acceptChanges = true;
 		main.removeAttribute('loading');
 		main.setAttribute('empty', true);
 		block.classList.remove('selected');
+		new Popup(`Errore ${status}!`, 'Si è verificato un errore durante il caricamento della sezione', { type: 'danger' } ).display();
 	}
-	const timeout = setTimeout(error, 10000);
+	const timeout = setTimeout(() => error(408), 10000);
 	
+	let ce = false;
 	const sectionName = block.getAttribute('api-section-name').toString();
-	const response = await (await fetch('/api/section/' + encodeURIComponent(sectionName), {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify({})
-	})).json();
+	let response;
+	try{
+		response = await (await fetch('/api/section/' + encodeURIComponent(sectionName), {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({})
+		})).json();
+	}
+	catch(e){ ce = true }
 
 	if(timeoutExpired) return;
 	clearTimeout(timeout);
 	acceptChanges = true;
 
-	if(response?.status !== 200){
-		alert('error');
-		return error();
-	}
+	if(ce) return error(503);
+	if(response?.status !== 200 && !ce) return error(response.status);
 
 	main.querySelector('.section-content').innerHTML = response?.content || 'Errore durante il fetch del contenuto';
 	main.removeAttribute('empty');

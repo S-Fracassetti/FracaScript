@@ -2,11 +2,11 @@ const $ = input => document.querySelector(input);
 const $$ = input => document.querySelectorAll(input);
 
 class Popup{
-	constructor(title, message, type = 'danger', options){
+	constructor(title, message, options){
 		this.title = title;
 		this.message = message;
 		this.options = options || {};
-		this.type = type;
+		this.type = this.options.type || 'note';
 		this.events = {};
 		this.onClose = callback => this.events.close = callback;
 		this.onDisplay = callback => this.events.display = callback;
@@ -38,14 +38,13 @@ class Popup{
 	}
 
 	saveRender(){
-		console.log(1);
 		// Popup.dom
 		const contrast = document.createElement('popup-contrast');
 		const popup = document.createElement('popup-window');
+		popup.setAttribute('data-type', this.type);
 
 		// Header
 		const header = document.createElement('popup-header');
-		header.setAttribute('data-type', this.type);
 
 		// Content
 		const content = document.createElement('popup-content');
@@ -62,20 +61,21 @@ class Popup{
 		buttonsContainer.append(...(this.options?.buttons || [{ text: 'Chiudi' }]).map(object => {
 			const button = document.createElement('popup-button');
 			button.textContent = object.text;
-			if(object.type === 'secondary') button.classList.add('secondary-button');
+			if(object.secondary) button.classList.add('secondary-button');
 			if(!object.preventClose) button.addEventListener('click', () => this.close());
+			if(object.onClick){
+				if(!Array.isArray(object.onClick)) object.onClick = [object.onClick];
+				object.onClick.forEach(callback => button.addEventListener('click', callback));
+			}
 			return button;
 		}));
 
-		content.append(header, buttonsContainer);
-		popup.append(content);
+		popup.append(header, content, buttonsContainer);
 		contrast.appendChild(popup);
 		this.dom = contrast;
 	}
 }
 
 Popup.Setup();
-
-new Popup('test', 'lorem ipsum dolor sit amet').display();
 
 export { $, $$, Popup };
