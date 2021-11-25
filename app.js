@@ -60,7 +60,7 @@ app.post('/api/section/:blockName', (req, res) => {
   if(!blocks.includes(blockName))
     return res.status(404).json({ success: false, status: 404, description: "Sezione non trovata" });
   
-  const content = fs.readFileSync(`./views/blocks/${blockName}.frcapi`).toString();
+  const content = fs.readFileSync(`./views/blocks/${blockName}.html`).toString();
   return res.json({ success: true, content, status: 200 });
 });
 
