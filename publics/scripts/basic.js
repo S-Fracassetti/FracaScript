@@ -1,6 +1,9 @@
 const $ = input => document.querySelector(input);
 const $$ = input => document.querySelectorAll(input);
 
+const parseScript = domString =>
+	domString.split('<!-- SCRIPT').slice(1).map(i => i.split('--')[0]).map(i => i.split(' ').join('').split('\t').join(''));
+
 class Popup{
 	constructor(title, message, options){
 		this.title = title;
@@ -93,4 +96,4 @@ class Popup{
 
 Popup.Setup();
 
-export { $, $$, Popup };
+export { $, $$, Popup, parseScript };

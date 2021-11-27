@@ -82,6 +82,14 @@ button{
 	font-weight: bold;
 	font-size: 18px;
 	margin-top: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+button img{
+	height: 1.5em;
+	margin-right: 10px;
 }
 
 button.round{ border-radius: 10em }

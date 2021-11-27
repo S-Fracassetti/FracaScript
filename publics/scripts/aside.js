@@ -1,5 +1,6 @@
-import { $, $$, Popup } from '/scripts/basic.js';
+import { $, $$, Popup, parseScript } from '/scripts/basic.js';
 import updateCheckboxes from '/scripts/Checkbox.js';
+import * as sectionModules from '/scripts/SectionModules.js';
 
 const aside = $('aside');
 const main = $('main');
@@ -49,4 +50,5 @@ blocks.forEach(block => block.addEventListener('click', async () => {
 	main.removeAttribute('loading');
 
 	updateCheckboxes();
+	parseScript(response?.content || '').forEach(script => sectionModules[script]());
 }));
