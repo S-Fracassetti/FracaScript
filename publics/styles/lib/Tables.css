@@ -1,0 +1,13 @@
+table, tr, td, thead, tbody, th{ border-collapse: collapse }
+
+td, th{ padding: 5px 15px }
+
+table thead{
+	background-color: #222;
+	color: #fff;
+	padding: 15px;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+table tbody tr:nth-child(even){ background-color: #eee }

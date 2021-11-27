@@ -45,6 +45,11 @@ class Popup{
 		checkboxStyle.rel = 'stylesheet';
 		checkboxStyle.href = '/styles/lib/Checkbox.css';
 		document.head.prepend(checkboxStyle);
+
+		const tablesStyle = document.createElement('link');
+		tablesStyle.rel = 'stylesheet';
+		tablesStyle.href = '/styles/lib/Tables.css';
+		document.head.prepend(tablesStyle);
 	}
 
 	saveRender(){
