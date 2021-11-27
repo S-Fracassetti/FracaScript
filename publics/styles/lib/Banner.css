@@ -1,0 +1,50 @@
+.banner{
+	padding: 20px;
+	color: #fff;
+	border-radius: 10px;
+	min-width: 550px;
+	max-width: 100%;
+	--color: #2155ff;
+	--icon: url(/assets/popup-cdn/note.svg);
+	background-color: var(--color);
+}
+
+.banner .banner--header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.banner .banner--title{
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.banner .banner--description{
+	display: block;
+}
+
+.banner .banner--icon{
+	width: 40px;
+	height: 40px;
+	margin-right: 20px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100% auto;
+	background-image: var(--icon);
+}
+
+.banner[danger]{
+	--icon: url(/assets/popup-cdn/danger.svg);
+	--color: #ff1953;
+}
+
+.banner[warning]{
+	--icon: url(/assets/popup-cdn/warning.svg);
+	--color: #ff9b0f;
+}
+
+.banner[success]{
+	--icon: url(/assets/popup-cdn/success.svg);
+	--color: #32a852;
+}

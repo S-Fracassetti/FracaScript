@@ -1,0 +1,58 @@
+.checkbox{
+	width: 1.6em;
+	height: 1.6em;
+	border: 1px solid #c4dcdf;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-right: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.checkbox--block[disabled] > .checkbox{
+	background-color: #d5edf0;
+	cursor: not-allowed;
+}
+
+.checkbox--block{
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+	font-size: 18px;
+}
+
+.checkbox--block:not([disabled]) > .checkbox--label[for]{ cursor: pointer }
+
+.checkbox--label{ font-size: .9em }
+
+.checkbox--block[loading] .checkbox--label,
+.checkbox--block[loading] .checkbox{ cursor: progress !important }
+
+.checkbox--block[loading] .checkbox,
+.checkbox--block[checked] .checkbox{
+	background-color: #333;
+	border: 0;
+}
+
+.checkbox::after{
+	content: '';
+	width: 100%;
+	height: 100%;
+	display: block;
+	background-repeat: no-repeat;
+	background-size: 60% 60%;
+	background-position: center center;
+}
+
+.checkbox--block[loading] .checkbox::after{
+	background-image: url(/assets/popup-cdn/loader.svg);
+	animation: checkboxLoading 3s linear infinite 0s;
+}
+
+.checkbox--block[checked] .checkbox::after{ background-image: url(/assets/popup-cdn/check.svg) }
+
+@keyframes checkboxLoading{
+	from{ transform: rotate(0deg) }
+	to{ transform: rotate(359deg) }
+}

@@ -55,6 +55,8 @@ const blocks = fs.readdirSync('./views/blocks/')
 
 /* Routes */
 app.get('/', (req, res) => res.render('dashboard'));
+app.get('/login', (req, res) => res.render('login'));
+
 app.post('/api/section/:blockName', (req, res) => {
   const blockName = req.params.blockName.toLowerCase();
   if(!blocks.includes(blockName))

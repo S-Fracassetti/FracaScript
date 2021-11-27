@@ -31,10 +31,20 @@ class Popup{
 	}
 
 	static Setup(){
-		const link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.href = '/styles/lib/Popup.css';
-		document.head.prepend(link);
+		const popupStyle = document.createElement('link');
+		popupStyle.rel = 'stylesheet';
+		popupStyle.href = '/styles/lib/Popup.css';
+		document.head.prepend(popupStyle);
+
+		const bannerStyle = document.createElement('link');
+		bannerStyle.rel = 'stylesheet';
+		bannerStyle.href = '/styles/lib/Banner.css';
+		document.head.prepend(bannerStyle);
+
+		const checkboxStyle = document.createElement('link');
+		checkboxStyle.rel = 'stylesheet';
+		checkboxStyle.href = '/styles/lib/Checkbox.css';
+		document.head.prepend(checkboxStyle);
 	}
 
 	saveRender(){

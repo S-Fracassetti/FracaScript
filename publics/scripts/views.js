@@ -3,6 +3,8 @@ import { $, $$ } from '/scripts/basic.js';
 const header = $('header');
 const main = $('main');
 
+main.style.maxHeight = (window.innerHeight - header.getBoundingClientRect().height) + 'px';
+
 const Menu = {
 	close: () => new Promise(resolve => {
 		const headerHeight = header.getBoundingClientRect().height;

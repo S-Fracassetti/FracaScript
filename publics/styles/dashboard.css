@@ -116,6 +116,11 @@ aside .block.selected{
 	color: var(--primary);
 }
 
+aside .block img{
+	width: 30px;
+	height: 30px;
+}
+
 aside .line{
 	width: 90%;
 	height: 1px;
@@ -128,7 +133,7 @@ aside .block:hover{ background-color: var(--dark-1) }
 
 aside .block span{
 	font-size: 1.2em;
-	margin-left: 10px;
+	margin-left: 15px;
 }
 
 user-info{
@@ -144,6 +149,7 @@ user-info{
 	font-weight: 400;
 	cursor: pointer;
 	transition: .2s all;
+	padding-right: 0;
 }
 
 user-info:hover{ background-color: var(--marineHover) }
@@ -152,14 +158,15 @@ user-info::after{
 	content: '';
 	display: block;
 	border-left: 1px solid #fff;
-	width: 1em;
-	height: 1em;
-	margin-left: 10px;
+	width: .7em;
+	height: .7em;
 	padding: 12px;
+	margin-left: 10px;
 	background-repeat: no-repeat;
+	background-position: right;
 	background-size: 100% 100%;
-	background-image: url(/assets/icons/block-arrow-down.svg);
-	padding-left: 10px;
+	background-image: url(/assets/icons/down.svg);
+	padding-left: 20px;
 }
 
 main:not([empty]) .empty{ display: none }
