@@ -3,7 +3,7 @@
 <div id="account">
 	<div class="block">
 		<h1>Informazioni personali</h1>
-		<table>
+		<table class="cta">
 			<tbody>
 				<tr>
 					<td>Nome completo</td>
@@ -75,7 +75,8 @@
 
 	<div class="block">
 		<h1>Sicurezza dell'account</h1>
-		<div class="banner banner-2fa" warning>
+
+		<div class="banner banner-2fa hidden" warning>
 			<div class="banner--header">
 				<div class="banner--icon"></div>
 				<div class="banner--hero">
@@ -86,16 +87,29 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="banner banner-2fa" success>
+			<div class="banner--header">
+				<div class="banner--icon"></div>
+				<div class="banner--hero">
+					<span class="banner--title">Il tuo account è sicuro</span>
+					<span class="banner--description">
+						Il tuo account è protetto, hai attivato l'autenticazione in due fattori correttamente. Riceverai un codice di verifica per ogni dispositivo non riconosciuto.a
+					</span>
+				</div>
+			</div>
+		</div>
+
 		<div class="account-settings">
 			<div class="checkbox--block" checked async>
 				<div class="checkbox" option-id="two-factor"></div>
 				<div class="checkbox--label" for="two-factor">Autenticazione in due fattori</div>
 			</div>
-			<div class="checkbox--block" loading async>
+			<div class="checkbox--block" checked async>
 				<div class="checkbox" option-id="two-factor"></div>
-				<div class="checkbox--label" for="two-factor">Ricevi newsletter (aggiornamenti dell'app)</div>
+				<div class="checkbox--label" for="two-factor">Autenticazione in due fattori</div>
 			</div>
-			<div class="checkbox--block" async>
+			<div class="checkbox--block" loading async>
 				<div class="checkbox" option-id="two-factor"></div>
 				<div class="checkbox--label" for="two-factor">Ricevi newsletter (aggiornamenti dell'app)</div>
 			</div>
