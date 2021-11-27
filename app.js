@@ -15,6 +15,7 @@ const http = require('http');
 const fs = require('fs');
 const uuid = require('uuid').v4;
 const bodyParser = require('body-parser');
+const sha256 = require('sha256');
 require('colors');
 
 /* Import settings */
@@ -37,6 +38,7 @@ const app = express();
 const server = http.createServer(app);
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static('./publics'));
 
@@ -53,9 +55,57 @@ const blocks = fs.readdirSync('./views/blocks/')
                  .filter(file => !file.startsWith('.'))
                  .map(file => file.split('.').reverse().slice(1).reverse().join('.'));
 
+/* Login system */
+if(!fs.existsSync(settings.sessions_database)) fs.writeFileSync(settings.sessions_database, '{}');
+if(!fs.existsSync(settings.accounts_database)) fs.writeFileSync(settings.accounts_database, '[]');
+const login = (username, password = null, object = {}) => {
+    const censor = object?.censor || [];
+    const createSession = object?.createSession;
+
+    const accounts = JSON.parse(fs.readFileSync(settings.accounts_database).toString());
+    const sessions = JSON.parse(fs.readFileSync(settings.sessions_database).toString());
+    if(password === null){
+        const session = sessions[username];
+        if(!session || session.expiration < Math.floor(Date.now() / 1000)) return false;
+        return accounts.find(account => account.id === session.account);
+    }
+    else{
+        const account = accounts.find(account => account.email === username && account.password === sha256(password));
+        if(!account) return false;
+        censor.forEach(key => delete account[key]);
+        const session_id = uuid();
+        if(createSession){
+            sessions[session_id] || (sessions[session_id] = {});
+            sessions[session_id].expiration = Math.floor(Date.now() / 1000) + settings.session_duration;
+            sessions[session_id].account = account.id;
+            fs.writeFileSync(settings.sessions_database, JSON.stringify(sessions));
+        }
+        return Object.assign(account, { session_id });
+    }
+}
+
 /* Routes */
-app.get('/', (req, res) => res.render('dashboard'));
-app.get('/login', (req, res) => res.render('login'));
+app.get('/', (req, res) => {
+    const session = req.session.login
+    if(!login(session)) return res.redirect('/login');
+    return res.render('dashboard');
+});
+
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+    try{
+        const session = login(username, password, { createSession: true });
+        if(!session) return res.render('login', { error: 'Credenziali non valide!' });
+        req.session.login = session.session_id;
+        res.redirect('/');
+    } catch(e){ res.render('login', { error: 'Errore del server, riprova più tardi' }) }
+});
+
+app.get('/login', (req, res) => {
+    const session = req.session.login;
+    if(login(session)) return res.redirect('/');
+    res.render('login');
+});
 
 app.post('/api/section/:blockName', (req, res) => {
   const blockName = req.params.blockName.toLowerCase();

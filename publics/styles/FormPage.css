@@ -49,3 +49,17 @@ footer{
 	header{ text-align: center }
 	header .header--hero{ margin-left: 0 }
 }
+
+.form-error error-banner{
+	padding: 10px;
+	display: block;
+	margin-bottom: 10px;
+	border-radius: 6px;
+	width: 100%;
+	color: #fff;
+	background-color: #ff5454;
+	border: 1px solid #ff2424;
+	font-weight: bold;
+}
+
+.form-error{ width: 100% }

@@ -16,14 +16,18 @@
 			<p>Linguaggio semplice e accessibile a tutti, utile per avvicinarsi alla programmazione.</p>
 		</div>
 	</header>
-	<form action="">
+	<form action="/login" method="POST">
 		<h1 class="form--title">FracaScript GUI</h1>
-		<input type="text" placeholder="Nome utente">
-		<input type="password" placeholder="Password">
+		<div class="form-error"></div>
+		<input type="text" placeholder="Nome utente" name="username">
+		<input type="password" placeholder="Password" name="password">
 		<button type="submit" class="round">accedi</button>
 	</form>
 	<footer>
-		<p>Fracascript.com è un brand di Fracassetti.net e Immyt.com (imm.yt) Fracascript.com tratta i dati secondo quanto scritto nella <a href="/privacy" target="_self">Normative sulla privacy</a>. Per qualsiasi informazione contatta <a href="mailto:info@fracascript.com">info@fracascript.com</a></p>
+		<p>Fracascript.com è un brand di Fracassetti.net e Immyt.com (imm.yt) Fracascript.com tratta i dati secondo quanto scritto nella <a href="/privacy" target="_self">Normativa sulla privacy</a>. Per qualsiasi informazione contatta <a href="mailto:info@fracascript.com">info@fracascript.com</a></p>
 	</footer>
+	<script>const error = "<%= typeof error !== 'undefined' ? error.replaceAll('"', '\\"') : '' %>"</script>
+	<script src="/scripts/login.js"></script>
+
 </body>
 </html>
