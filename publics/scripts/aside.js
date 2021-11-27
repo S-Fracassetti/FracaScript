@@ -1,4 +1,5 @@
 import { $, $$, Popup } from '/scripts/basic.js';
+import updateCheckboxes from '/scripts/Checkbox.js';
 
 const aside = $('aside');
 const main = $('main');
@@ -46,4 +47,6 @@ blocks.forEach(block => block.addEventListener('click', async () => {
 	main.querySelector('.section-content').innerHTML = response?.content || 'Errore durante il fetch del contenuto';
 	main.removeAttribute('empty');
 	main.removeAttribute('loading');
+
+	updateCheckboxes();
 }));
