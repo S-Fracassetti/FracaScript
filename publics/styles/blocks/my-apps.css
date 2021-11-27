@@ -1,0 +1,43 @@
+.app-cards .app{
+	margin: 10px 0;
+	width: 100%;
+	max-width: 700px;
+	padding: 20px;
+	border-radius: 5px;
+	border: 1px solid #c4dcdf;
+	cursor: pointer;
+	transition: .2s all;
+}
+
+.app-cards .app h2{ color: #24272B }
+.app-cards .app p{
+	margin-top: 8px;
+	color: #383B3E;
+}
+
+.app-cards .app:hover{ background-color: #fafafa }
+
+.app-cards .banner{ margin-top: 20px }
+
+app-type{
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+app-type::before{
+	content: '';
+	display: inline-block;
+	padding: 5px;
+	background-color: #2667FF;
+	color: #fff;
+	font-size: 12px;
+	text-transform: uppercase;
+	border-radius: 5px;
+}
+
+app-type[mobile]::before{ content: 'mobile' }
+app-type[desktop]::before{
+	content: 'desktop';
+	background-color: #333;
+}
