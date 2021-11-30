@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="/styles/blocks/create-app.css">
+
+<div id="new-app">
+	<h1>Nuova app</h1>
+
+	<div class="loading-creation loading hidden" loading></div>
+
+	<div class="banner banner-2fa hidden error" danger>
+		<div class="banner--header">
+			<div class="banner--icon"></div>
+			<div class="banner--hero">
+				<span class="banner--title">Errore durante la creazione</span>
+				<span class="banner--description"></span>
+			</div>
+		</div>
+	</div>
+
+	<form action="javascript:void(0)" id="app-creation-form">
+		<div class="question-block">
+		<span>Per prima cosa, seleziona il tipo di applicazione</span><br>
+			<select name="type">
+				<option value="mobile">Mobile</option>
+				<option value="desktop">Desktop</option>
+			</select>
+		</div>
+
+		<div class="question-block">
+			<span>Dai un nome alla tua app</span><br>
+			<input type="text" placeholder="Nome dell'app" name="nome">
+		</div>
+
+		<div class="question-block">
+			<span>Descrivi la tua app</span><br>
+			<textarea placeholder="Descrizione dell'app" name="descrizione"></textarea>
+		</div>
+
+		<button type="submit">Crea applicazione</button>
+	</form>
+</div>
+
+<!-- SCRIPT newApp -->

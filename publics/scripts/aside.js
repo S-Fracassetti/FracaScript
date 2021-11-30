@@ -4,7 +4,7 @@ import * as sectionModules from '/scripts/SectionModules.js';
 
 const aside = $('aside');
 const main = $('main');
-const blocks = aside.querySelectorAll('.block-list .block');
+const blocks = aside.querySelectorAll('.block-list .block, button.space');
 
 let acceptChanges = true;
 blocks.forEach(block => block.addEventListener('click', async () => {

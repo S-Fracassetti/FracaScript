@@ -9,7 +9,12 @@
 	transition: .2s all;
 }
 
-.app-cards .app h2{ color: #24272B }
+.app-cards .app h2{
+	color: #24272B;
+	word-break: break-all;
+	max-width: 100%;
+}
+
 .app-cards .app p{
 	margin-top: 8px;
 	color: #383B3E;
@@ -27,6 +32,8 @@ app-type{
 
 app-type::before{
 	content: '';
+	min-width: 70px;
+	text-align: center;
 	display: inline-block;
 	padding: 5px;
 	background-color: #2667FF;
@@ -41,3 +48,37 @@ app-type[desktop]::before{
 	content: 'desktop';
 	background-color: #333;
 }
+
+.loading-apps{ margin-top: 20px }
+
+.app .options{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.app .options img{
+	width: 32px;
+	margin-right: 10px;
+	padding: 5px;
+	border-radius: 4px;
+}
+
+.app .options img:hover,
+.app .options span:hover{
+	background-color: #eee;
+	padding: 5px;
+	border: 0;
+}
+
+.app .options span{
+	display: block;
+	padding: 4px;
+	border-radius: 5px;
+	color: var(--primary);
+	border: 1px solid var(--primary);
+	margin-right: 10px;
+}
+
+.app .options > div{ display: flex }

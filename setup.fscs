@@ -1,4 +1,5 @@
 WebServerPort=3000
 accounts_database=./databases/accounts.json
 sessions_database=./databases/sessions.json
+apps_database=./databases/apps.json
 session_duration=604800

@@ -1,0 +1,28 @@
+.question-block{ margin-top: 15px }
+select{
+	width: 400px;
+	max-width: 100%;
+	font-size: 1.3em;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+#new-app input,
+#new-app textarea,
+#new-app button{
+	width: 400px;
+	max-width: 100%;
+}
+
+#new-app textarea{ height: 200px }
+
+#new-app form{
+	border: 0;
+	padding: 0;
+	width: 100%;
+	text-align: left;
+	display: block;
+}
+
+#new-app .loading-creation,
+#new-app .error{ margin-top: 20px }

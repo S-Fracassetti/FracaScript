@@ -47,12 +47,13 @@ a:hover{ text-decoration: underline }
 .logo.blue.square{ background-image: url(/assets/logo/blue-vector.svg) }
 .logo.blue.round{ background-image: url(/assets/logo/round-blue-vector.svg) }
 
-input::placeholder{
+input::placeholder,
+textarea::placeholder{
 	color: #c4dcdf;
 	font-family: Inter, sans-serif;
 }
 
-input{
+input, textarea{
 	width: 100%;
 	padding: 14px;
 	border: 1px solid #c4dcdf;
@@ -62,9 +63,12 @@ input{
 	border-radius: 6px;
 	margin: 5px 0;
 	transition: .1s all;
+	resize: none;
+	font-family: Inter, sans-serif;
 }
 
-input:focus{
+input:focus,
+textarea:focus{
 	border: 2px solid var(--marine);
 	padding: 13px;
 }

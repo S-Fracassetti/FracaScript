@@ -1,1 +1,3 @@
-[]
+[
+	{ "id": "57155fe4-69c4-4926-b274-9310648086b2", "nome": "Simone", "cognome": "Fracassetti", "email": "s.fracassetti@immyt.com", "password": "5e5d4bd949a735ce375d364df17bc1f0eaded98c472140e9f2d4479aaadf5990", "dob": "27/10/2005", "2fa": true, "newsletter": true }
+]

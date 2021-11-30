@@ -11,7 +11,7 @@
 
 .banner .banner--header{
 	display: flex;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 	align-items: center;
 }
 
@@ -27,6 +27,8 @@
 .banner .banner--icon{
 	width: 40px;
 	height: 40px;
+	min-width: 40px;
+	min-height: 40px;
 	margin-right: 20px;
 	background-repeat: no-repeat;
 	background-position: center center;

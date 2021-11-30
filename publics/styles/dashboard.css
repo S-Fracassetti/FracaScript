@@ -195,13 +195,13 @@ main[empty] .empty button{
 	display: block;
 }
 
-main[loading] *{ display: none }
-main[loading]{
+[loading] *{ display: none }
+[loading]{
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-main[loading]::after{
+[loading]::after{
 	display: block;
 	content: '';
 	width: 64px;

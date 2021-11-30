@@ -81,7 +81,7 @@
 .img-preview img{
 	max-width: 78vw;
 	height: auto;
-	max-height: 99vw;
+	max-height: 80vh;
 	border-radius: 9px;
 }
 
